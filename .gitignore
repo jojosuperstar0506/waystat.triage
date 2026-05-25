@@ -33,3 +33,4 @@ out/
 
 # Eval outputs (regeneratable)
 eval/results.json
+.gstack/
