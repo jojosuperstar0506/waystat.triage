@@ -26,13 +26,20 @@ def get_client() -> Client:
 
 
 def upsert_email(email: dict) -> str:
-    """Insert raw email if not already present. Returns email row UUID."""
+    """Insert raw email/item if not already present. Returns email row UUID.
+
+    Works for both external emails and internal queue items. Source is
+    inferred from the email dict — defaults to 'external' if not specified.
+    """
     client = get_client()
     payload = {
-        "gmail_message_id": email["id"],  # using our synthetic ID as the gmail message id
+        "gmail_message_id": email["id"],
         "thread_id": email.get("thread_id"),
+        "source": email.get("source", "external"),
+        "channel": email.get("channel"),
         "from_address": email["from"],
         "from_name": email.get("from_name"),
+        "from_role": email.get("from_role"),
         "to_address": email["to"],
         "subject": email.get("subject"),
         "body": email.get("body"),
@@ -50,10 +57,11 @@ def write_triage_result(email_uuid: str, result: TriageResult) -> None:
 
     client.table("classifications").insert({
         "email_id": email_uuid,
+        "source": result.classification.source,
         "category": result.classification.category,
         "confidence": result.classification.confidence,
         "reasoning": result.classification.reasoning,
-        "model_version": "claude-sonnet-4-6-v1",
+        "model_version": "claude-sonnet-4-6-v2",
     }).execute()
 
     client.table("extractions").insert({

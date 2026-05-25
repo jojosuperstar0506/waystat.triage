@@ -23,13 +23,16 @@ drop table if exists extractions cascade;
 drop table if exists classifications cascade;
 drop table if exists emails cascade;
 
--- Raw emails as ingested from Gmail
+-- Raw emails / queue items as ingested from Gmail or internal sources
 create table emails (
     id uuid primary key default gen_random_uuid(),
     gmail_message_id text unique not null,
     thread_id text,
+    source text not null default 'external' check (source in ('external', 'internal')),
+    channel text,  -- for internal: 'slack', 'internal_email', etc.
     from_address text not null,
     from_name text,
+    from_role text,  -- only populated for internal items
     to_address text not null,
     subject text,
     body text,
@@ -39,11 +42,13 @@ create table emails (
 
 create index emails_received_at_idx on emails (received_at desc);
 create index emails_from_address_idx on emails (from_address);
+create index emails_source_idx on emails (source);
 
--- Classification: what kind of email is this?
+-- Classification: what kind of item is this?
 create table classifications (
     id uuid primary key default gen_random_uuid(),
     email_id uuid not null references emails(id) on delete cascade,
+    source text not null check (source in ('external', 'internal')),
     category text not null,
     confidence numeric(3,2) check (confidence between 0 and 1),
     reasoning text,
@@ -53,6 +58,7 @@ create table classifications (
 
 create index classifications_email_id_idx on classifications (email_id);
 create index classifications_category_idx on classifications (category);
+create index classifications_source_idx on classifications (source);
 
 -- Extraction: structured fields pulled from the email body.
 -- Schema varies by category, so we use JSONB.
@@ -114,13 +120,16 @@ create table human_feedback (
 
 create index human_feedback_email_id_idx on human_feedback (email_id);
 
--- Convenience view: the full triage record for one email
+-- Convenience view: the full triage record for one item
 create or replace view triage_inbox as
 select
     e.id as email_id,
     e.gmail_message_id,
+    e.source,
+    e.channel,
     e.from_address,
     e.from_name,
+    e.from_role,
     e.subject,
     e.body,
     e.received_at,

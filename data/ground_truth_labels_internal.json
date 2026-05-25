@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "description": "Hand-labeled ground truth for the 15 internal queue items. Labeled against the same priority/needs_ryan rubric as external emails so cross-source comparison is apples-to-apples.",
+    "labeling_principles": [
+      "An internal escalation that blocks others' work is generally higher priority than a routine external inquiry.",
+      "needs_ryan=true for any decision only Ryan can make (build-vs-buy, pricing exceptions, board responses, offer signoffs).",
+      "Internal FYIs and 'no decisions needed' updates score low even though they're from team members."
+    ]
+  },
+  "labels": [
+    {
+      "email_id": "internal_001",
+      "source": "internal",
+      "category": "eng_decision",
+      "needs_ryan": true,
+      "expected_priority_range": [85, 100],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Build-vs-buy on core infra. Only Ryan can call. Blocks sprint planning for the whole eng team. Time-sensitive (today)."
+    },
+    {
+      "email_id": "internal_002",
+      "source": "internal",
+      "category": "internal_escalation",
+      "needs_ryan": true,
+      "expected_priority_range": [80, 95],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Pricing exception that ties to a strategic prospect's RFP. EOD deadline. Ryan must own the call."
+    },
+    {
+      "email_id": "internal_003",
+      "source": "internal",
+      "category": "direct_report_request",
+      "needs_ryan": false,
+      "expected_priority_range": [40, 55],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "BDR lead asking for feedback on a template. Important for team velocity but not urgent. Wednesday deadline."
+    },
+    {
+      "email_id": "internal_004",
+      "source": "internal",
+      "category": "internal_escalation",
+      "needs_ryan": true,
+      "expected_priority_range": [85, 100],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Customer churn risk escalation — same customer that just emailed externally (Lisa Huang at MountainPeak). The internal and external items should be linked. Only Ryan can authorize an eng resource reallocation."
+    },
+    {
+      "email_id": "internal_005",
+      "source": "internal",
+      "category": "board_communication",
+      "needs_ryan": true,
+      "expected_priority_range": [80, 95],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Board member asking substantive questions before the board meeting. Ryan must respond personally."
+    },
+    {
+      "email_id": "internal_006",
+      "source": "internal",
+      "category": "finance_decision",
+      "needs_ryan": true,
+      "expected_priority_range": [65, 80],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Runway / fundraise strategy question. Not today-urgent but Ryan-only decision."
+    },
+    {
+      "email_id": "internal_007",
+      "source": "internal",
+      "category": "hr_decision",
+      "needs_ryan": true,
+      "expected_priority_range": [85, 100],
+      "expected_action": "schedule_meeting",
+      "notes": "Senior hire with competing offer; Ryan needs to do a closer call. Friday deadline. Top-tier candidate. Cannot be delegated."
+    },
+    {
+      "email_id": "internal_008",
+      "source": "internal",
+      "category": "internal_fyi",
+      "needs_ryan": false,
+      "expected_priority_range": [10, 25],
+      "expected_action": "auto_archive",
+      "notes": "Eng FYI on a fix that's already shipped. Good signal but no action needed."
+    },
+    {
+      "email_id": "internal_009",
+      "source": "internal",
+      "category": "direct_report_request",
+      "needs_ryan": false,
+      "expected_priority_range": [50, 65],
+      "expected_action": "schedule_meeting",
+      "notes": "Product lead flagging a real pattern in customer asks. Worth Ryan's attention but no decision today — book the meeting."
+    },
+    {
+      "email_id": "internal_010",
+      "source": "internal",
+      "category": "direct_report_request",
+      "needs_ryan": true,
+      "expected_priority_range": [55, 75],
+      "expected_action": "schedule_meeting",
+      "notes": "Direct report asking for a career/role conversation. Could be a flight-risk signal. Ryan should respond personally to schedule promptly."
+    },
+    {
+      "email_id": "internal_011",
+      "source": "internal",
+      "category": "internal_escalation",
+      "needs_ryan": false,
+      "expected_priority_range": [55, 75],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "BDR asking for pricing guidance ahead of a demo. Time-bound (tomorrow). Ryan should weigh in but could also delegate trust to the AE."
+    },
+    {
+      "email_id": "internal_012",
+      "source": "internal",
+      "category": "hr_decision",
+      "needs_ryan": true,
+      "expected_priority_range": [70, 85],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Offer letter awaiting signature. Quick action but only Ryan can sign. EOD deadline."
+    },
+    {
+      "email_id": "internal_013",
+      "source": "internal",
+      "category": "eng_decision",
+      "needs_ryan": false,
+      "expected_priority_range": [30, 50],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "Small infra decision. Eng lead expressed a preference; Ryan could just rubber-stamp. Not blocking."
+    },
+    {
+      "email_id": "internal_014",
+      "source": "internal",
+      "category": "direct_report_request",
+      "needs_ryan": true,
+      "expected_priority_range": [60, 75],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Demo prep question with a clear product/commitment tradeoff. Tomorrow deadline. Ryan should weigh in."
+    },
+    {
+      "email_id": "internal_015",
+      "source": "internal",
+      "category": "internal_fyi",
+      "needs_ryan": false,
+      "expected_priority_range": [5, 20],
+      "expected_action": "auto_archive",
+      "notes": "Financial FYI with no decisions requested. Useful context but no action."
+    }
+  ]
+}

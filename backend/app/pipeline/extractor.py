@@ -73,6 +73,56 @@ CATEGORY_EXTRACTION_GUIDES = {
   - plausible_categories: array of the 2-3 categories this could plausibly belong to
   - recommended_handling: 1 sentence on how Ryan should think about this
   - has_personal_dimension: true if the email involves a personal relationship (former colleague, friend, etc.) mixed with business""",
+
+    # ─── INTERNAL CATEGORIES ──────────────────────────────────────────
+
+    "eng_decision": """Extract these fields:
+  - decision_type: "build_vs_buy" | "vendor_selection" | "architecture" | "scoping" | "other"
+  - blocking_who: who is blocked waiting on this decision (e.g. "eng team", "1 engineer", "the customer-dashboard sprint")
+  - blocking_count: integer estimate of how many people are blocked
+  - deadline: deadline mentioned, or null
+  - options_presented: array of options the requester laid out
+  - sender_preference: which option the sender is leaning toward, or null
+  - can_ryan_delegate: true if someone else on the team could plausibly make this call""",
+
+    "internal_escalation": """Extract these fields:
+  - escalation_about: what is being escalated (customer issue, pricing, resource conflict, etc.)
+  - related_external_entity: the customer/prospect/external party involved, or null
+  - decision_needed: what specific decision Ryan needs to make
+  - deadline: deadline mentioned, or null
+  - escalator_role: role of the person escalating (CS, sales, eng, etc.)
+  - tied_to_customer_email: true if this internal item references a specific external email Ryan also received""",
+
+    "direct_report_request": """Extract these fields:
+  - request_type: "1on1_request" | "feedback_ask" | "scoping_help" | "career_conversation" | "other"
+  - urgency: "this_week" | "no_rush" | "asap"
+  - flight_risk_signal: true if the language suggests the report is unhappy or considering leaving
+  - report_name: name of the direct report""",
+
+    "board_communication": """Extract these fields:
+  - sender_role: "board_member" | "investor" | "advisor"
+  - sender_org: their firm or board affiliation
+  - questions_asked: array of substantive questions
+  - tied_to_upcoming_meeting: true if this relates to a scheduled board/investor meeting
+  - response_format_preferred: "written" | "call" | "meeting" | "unspecified" """,
+
+    "finance_decision": """Extract these fields:
+  - decision_type: "runway_planning" | "fundraise_timing" | "budget_approval" | "spend_authorization" | "other"
+  - amount_or_horizon: dollar amount or timeline involved
+  - sender_recommendation: what finance is recommending, or null
+  - urgency: "immediate" | "this_quarter" | "informational" """,
+
+    "hr_decision": """Extract these fields:
+  - decision_type: "offer_signoff" | "termination" | "role_change" | "comp_change" | "other"
+  - person_name: the person the decision is about
+  - role_or_level: their role
+  - deadline: deadline mentioned (often tied to a competing offer)
+  - blocker_if_delayed: what happens if Ryan doesn't act in time""",
+
+    "internal_fyi": """Extract these fields:
+  - fyi_type: "shipped_work" | "financial_update" | "team_update" | "customer_update" | "other"
+  - decision_required: false (by definition, FYIs require no decision)
+  - useful_context: 1 sentence summary of what's worth knowing""",
 }
 
 

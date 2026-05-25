@@ -26,10 +26,36 @@ from app.triage import triage_email
 
 def load_data():
     root = Path(__file__).resolve().parent.parent
+
+    emails = []
     with open(root / "data" / "synthetic_emails.json") as f:
-        emails = json.load(f)["emails"]
+        for e in json.load(f)["emails"]:
+            e.setdefault("source", "external")
+            emails.append(e)
+
+    try:
+        with open(root / "data" / "synthetic_internal_items.json") as f:
+            for item in json.load(f)["items"]:
+                item.setdefault("source", "internal")
+                item.setdefault("to", "ryan@waystationai.com")
+                emails.append(item)
+    except FileNotFoundError:
+        pass
+
+    labels = {}
     with open(root / "data" / "ground_truth_labels.json") as f:
-        labels = {l["email_id"]: l for l in json.load(f)["labels"]}
+        for l in json.load(f)["labels"]:
+            l.setdefault("source", "external")
+            labels[l["email_id"]] = l
+
+    try:
+        with open(root / "data" / "ground_truth_labels_internal.json") as f:
+            for l in json.load(f)["labels"]:
+                l.setdefault("source", "internal")
+                labels[l["email_id"]] = l
+    except FileNotFoundError:
+        pass
+
     return emails, labels
 
 
@@ -39,10 +65,17 @@ def run_eval():
 
     per_email_results = []
     classification_correct = 0
+    source_correct = 0
     needs_ryan_correct = 0
     priority_in_range = 0
     action_correct = 0
     by_category_correct = defaultdict(lambda: {"correct": 0, "total": 0})
+    by_source_correct = defaultdict(lambda: {
+        "classification_correct": 0,
+        "needs_ryan_correct": 0,
+        "priority_in_range": 0,
+        "total": 0,
+    })
 
     confusion = defaultdict(lambda: defaultdict(int))  # actual -> predicted -> count
 
@@ -60,6 +93,13 @@ def run_eval():
             print(f"[FAIL] {eid}: {e}")
             per_email_results.append({"email_id": eid, "ok": False, "error": str(e)})
             continue
+
+        # Source accuracy
+        pred_source = result.classification.source
+        true_source = truth["source"]
+        src_ok = (pred_source == true_source)
+        if src_ok:
+            source_correct += 1
 
         # Classification accuracy
         pred_cat = result.classification.category
@@ -83,6 +123,15 @@ def run_eval():
         if pr_ok:
             priority_in_range += 1
 
+        # Source-bucketed metrics
+        by_source_correct[true_source]["total"] += 1
+        if cat_ok:
+            by_source_correct[true_source]["classification_correct"] += 1
+        if nr_ok:
+            by_source_correct[true_source]["needs_ryan_correct"] += 1
+        if pr_ok:
+            by_source_correct[true_source]["priority_in_range"] += 1
+
         # Action correctness (exact match)
         act_ok = (result.drafted_response.suggested_action == truth["expected_action"])
         if act_ok:
@@ -92,6 +141,7 @@ def run_eval():
             "email_id": eid,
             "ok": True,
             "predicted": {
+                "source": pred_source,
                 "category": pred_cat,
                 "needs_ryan": result.priority.needs_ryan,
                 "priority_score": result.priority.score,
@@ -99,12 +149,14 @@ def run_eval():
                 "classification_confidence": result.classification.confidence,
             },
             "truth": {
+                "source": true_source,
                 "category": true_cat,
                 "needs_ryan": truth["needs_ryan"],
                 "priority_range": truth["expected_priority_range"],
                 "action": truth["expected_action"],
             },
             "correct": {
+                "source": src_ok,
                 "category": cat_ok,
                 "needs_ryan": nr_ok,
                 "priority_in_range": pr_ok,
@@ -123,10 +175,20 @@ def run_eval():
         "n_emails": n,
         "elapsed_seconds": round(elapsed, 1),
         "metrics": {
+            "source_accuracy": round(source_correct / n, 3) if n else 0,
             "classification_accuracy": round(classification_correct / n, 3) if n else 0,
             "needs_ryan_accuracy": round(needs_ryan_correct / n, 3) if n else 0,
             "priority_in_range_rate": round(priority_in_range / n, 3) if n else 0,
             "action_exact_match_rate": round(action_correct / n, 3) if n else 0,
+        },
+        "by_source_metrics": {
+            src: {
+                "total": v["total"],
+                "classification_accuracy": round(v["classification_correct"] / v["total"], 3) if v["total"] else 0,
+                "needs_ryan_accuracy": round(v["needs_ryan_correct"] / v["total"], 3) if v["total"] else 0,
+                "priority_in_range_rate": round(v["priority_in_range"] / v["total"], 3) if v["total"] else 0,
+            }
+            for src, v in by_source_correct.items()
         },
         "per_category_accuracy": {
             cat: {

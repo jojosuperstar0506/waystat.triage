@@ -10,9 +10,14 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field, field_validator
 
 
-# The seven categories we triage into. Keeping this as a Literal type lets
-# Pydantic validate that Claude's output is one of these exact strings.
-EmailCategory = Literal[
+# Source dimension: where did this item enter Ryan's queue?
+# External = customers, prospects, vendors, recruiters, noise.
+# Internal = teammates, board, investors, internal systems.
+ItemSource = Literal["external", "internal"]
+
+
+# Categories for external items (customer/prospect-facing).
+ExternalCategory = Literal[
     "sales_inquiry",
     "customer_support",
     "renewal_expansion",
@@ -21,6 +26,44 @@ EmailCategory = Literal[
     "noise",
     "edge_case",
 ]
+
+# Categories for internal items (team-facing).
+InternalCategory = Literal[
+    "eng_decision",            # Build-vs-buy, architecture calls, vendor selection
+    "internal_escalation",     # Pricing exceptions, customer escalations needing CEO call
+    "direct_report_request",   # 1:1 requests, feedback asks, scoping conversations
+    "board_communication",     # Board members, investors with substantive questions
+    "finance_decision",        # Runway, fundraise, budget calls
+    "hr_decision",             # Offers, terminations, role changes
+    "internal_fyi",            # Updates with no decision required
+]
+
+# Unified category type — classifier returns one of these.
+EmailCategory = Literal[
+    "sales_inquiry",
+    "customer_support",
+    "renewal_expansion",
+    "vendor_pitch",
+    "recruiting",
+    "noise",
+    "edge_case",
+    "eng_decision",
+    "internal_escalation",
+    "direct_report_request",
+    "board_communication",
+    "finance_decision",
+    "hr_decision",
+    "internal_fyi",
+]
+
+EXTERNAL_CATEGORIES = {
+    "sales_inquiry", "customer_support", "renewal_expansion",
+    "vendor_pitch", "recruiting", "noise", "edge_case",
+}
+INTERNAL_CATEGORIES = {
+    "eng_decision", "internal_escalation", "direct_report_request",
+    "board_communication", "finance_decision", "hr_decision", "internal_fyi",
+}
 
 # Suggested next actions. Designed around what Ryan actually does with email:
 # either respond personally, delegate to a team member, route to a system,
@@ -39,9 +82,23 @@ SuggestedAction = Literal[
 
 class ClassificationResult(BaseModel):
     """Output of the classification stage."""
+    source: ItemSource
     category: EmailCategory
     confidence: float = Field(ge=0.0, le=1.0)
     reasoning: str = Field(min_length=10, max_length=500)
+
+    @field_validator("category")
+    @classmethod
+    def category_matches_source(cls, v, info):
+        # Soft validation — we don't error, but the prioritizer/drafter
+        # use this consistency for downstream logic.
+        source = info.data.get("source")
+        if source == "external" and v in INTERNAL_CATEGORIES:
+            # Allow but flag — this is a model bug we'd want to catch in eval
+            pass
+        if source == "internal" and v in EXTERNAL_CATEGORIES:
+            pass
+        return v
 
 
 class ExtractionResult(BaseModel):

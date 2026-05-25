@@ -1,0 +1,198 @@
+{
+  "_meta": {
+    "description": "Internal queue items — Slack messages, internal email threads, async asks from the Waystation team. These get merged with the external email dataset to test cross-source prioritization.",
+    "categories": [
+      "eng_decision",
+      "internal_escalation",
+      "direct_report_request",
+      "board_communication",
+      "finance_decision",
+      "hr_decision",
+      "internal_fyi"
+    ],
+    "intended_distribution": {
+      "eng_decision": 3,
+      "internal_escalation": 3,
+      "direct_report_request": 3,
+      "board_communication": 2,
+      "finance_decision": 2,
+      "hr_decision": 1,
+      "internal_fyi": 1
+    },
+    "design_notes": "Internal items vary in: urgency (some need today, some this week), blocking-ness (some block others' work, some don't), and Ryan-specificity (some only Ryan can decide, some are escalations that COULD be delegated)."
+  },
+  "items": [
+    {
+      "id": "internal_001",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Brandon Kim",
+      "from_role": "Eng Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "[#eng-decisions] Build vs buy OCR for COA extraction",
+      "received_at": "2026-05-25T09:18:00-07:00",
+      "body": "@ryan need a call on this today if possible. We're at a fork — either we keep investing in our in-house COA extraction (last sprint got us to 91% accuracy on canola/oil COAs but the lot-number issue Jen flagged at Brightline is a structural problem with our current approach), or we license AWS Textract + a thin wrapper layer (~$3.2k/mo at our volume, would get us to ~96% accuracy on those edge cases). Sprint plan for next 2 weeks depends on this. I'm leaning buy but it's your call — we'd be giving up some IP defensibility. Don't want to start work in either direction until you weigh in. Free anytime after 11."
+    },
+    {
+      "id": "internal_002",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "lisa.park@waystationai.com",
+      "from_name": "Lisa Park",
+      "from_role": "Senior AE",
+      "to": "ryan@waystationai.com",
+      "subject": "Need pricing approval — Golden Bear Snacks (smaller deal but strategic)",
+      "received_at": "2026-05-25T10:34:00-07:00",
+      "body": "Hi Ryan,\n\nFollowing up on Mike Dawson's email from earlier — Golden Bear Snacks wants 9 seats but our minimum is 10. The deal is $X ARR and on its own that's not the strategic value.\n\nThe strategic value: their COO sits on the board of the Premium Snacks Association alongside three CEOs in our ICP. Lisa from KinderSnack actually mentioned them in their RFP as a peer reference they'd want to talk to.\n\nMy recommendation: approve the 9-seat exception with a written note that future 10+ pricing kicks in if they expand. Need your call by EOD — they want to sign before the long weekend.\n\nLisa"
+    },
+    {
+      "id": "internal_003",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Dani Rivera",
+      "from_role": "BDR Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "[DM] feedback on the new cold email template?",
+      "received_at": "2026-05-25T08:47:00-07:00",
+      "body": "Hey Ryan — when you have a sec, I drafted a new cold email template for the procurement-leader persona based on the messaging from your podcast interview. I've A/B tested two versions on a small batch (n=40) and one is getting a 23% reply rate which is the highest we've seen. Want your eyes on it before I roll it out to the whole BDR team next week. No rush, but ideally by Wednesday so I can brief the team Thursday standup."
+    },
+    {
+      "id": "internal_004",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "marcus.chen@waystationai.com",
+      "from_name": "Marcus Chen",
+      "from_role": "Customer Success Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "MountainPeak — Lisa Huang escalation, need your input",
+      "received_at": "2026-05-25T09:55:00-07:00",
+      "body": "Ryan,\n\nLisa Huang at MountainPeak just emailed you (and copied me) about the API access situation. This is the 4th time she's followed up. She's not wrong — we told her Q2 and we're going to miss it.\n\nI need your guidance on what to actually commit to. Options:\n  1. Hard date in next 2 weeks (would require eng to pull 1 person off the OCR work)\n  2. Beta access with limited endpoints (could ship in 1 week, would buy us 30 days)\n  3. Honest 'Q3, here's why' (risks the renewal)\n\nShe renewed partly on this. I want to give her a real answer today.\n\nMarcus"
+    },
+    {
+      "id": "internal_005",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "j.weatherspoon@summitventures.com",
+      "from_name": "James Weatherspoon",
+      "from_role": "Board Member (Summit Ventures)",
+      "to": "ryan@waystationai.com",
+      "subject": "Board prep — couple of questions on the May materials",
+      "received_at": "2026-05-25T07:22:00-07:00",
+      "body": "Ryan,\n\nReviewed the board deck draft. Two questions I'd like to discuss before Thursday's meeting so we don't burn the live time:\n\n1. The net retention number — is the 118% including the Harvest House situation? If so what does it look like ex-them?\n\n2. On the headcount plan, you have 18 by year-end. What's the rationale for two BDRs vs one BDR + one CS person, given where the funnel constraints actually are?\n\nNo rush on a written reply — happy to discuss on a quick call before Thursday if easier. I have 30 min Wed 2pm.\n\nJames"
+    },
+    {
+      "id": "internal_006",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Sarah Wu",
+      "from_role": "Head of Finance (fractional)",
+      "to": "ryan@waystationai.com",
+      "subject": "[DM] cash position update + a question",
+      "received_at": "2026-05-25T11:02:00-07:00",
+      "body": "Ryan, the May numbers are looking solid — we're at $X ARR with the new Verdant and Coastal Collective deals booked. Cash position is healthy through Q1 2027 at current burn.\n\nQuestion for you: with the additional CS hire we discussed plus the senior eng candidate from HMST, we'd push that to Q3 2026. Are we comfortable, or do you want to start informal raise conversations? Not urgent but want to align before I update the board deck."
+    },
+    {
+      "id": "internal_007",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "kate.donovan@waystationai.com",
+      "from_name": "Kate Donovan",
+      "from_role": "Head of Talent",
+      "to": "ryan@waystationai.com",
+      "subject": "Senior Eng candidate from HMST — need your call by Friday",
+      "received_at": "2026-05-25T13:15:00-07:00",
+      "body": "Hi Ryan,\n\nThe candidate Rachel Osei pitched last week (Priya, the Flexport engineer) did her loop yesterday. Strong yes from everyone she met — Brandon especially thinks she'd be a force multiplier on the eng team. Offer would be at the top of the band: $X base + Y equity.\n\nShe has a competing offer from Anthropic that closes Friday. We need a decision by Thursday EOD to make the offer in time.\n\nCould you do a 20-min closer call with her tomorrow (Tuesday)? She specifically asked to talk to you about the long-term product vision.\n\nKate"
+    },
+    {
+      "id": "internal_008",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Ben Rodriguez",
+      "from_role": "Senior Engineer",
+      "to": "ryan@waystationai.com",
+      "subject": "[#eng] FYI Mailgun webhook fix shipped",
+      "received_at": "2026-05-25T12:30:00-07:00",
+      "body": "FYI — the Mailgun webhook timeout issue from #1247 is fixed and deployed. Brightline and Northern Brewing back to normal ingestion as of 11:45am. Postmortem doc going up tomorrow but the gist: rate limiter on our side was conflating two different webhook event types. No customer data was lost. Not urgent for you but flagging since both of those are active accounts."
+    },
+    {
+      "id": "internal_009",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "tom.alvarez@waystationai.com",
+      "from_name": "Tom Alvarez",
+      "from_role": "Product (founding)",
+      "to": "ryan@waystationai.com",
+      "subject": "Pattern I'm seeing in support tickets — worth a roadmap conversation",
+      "received_at": "2026-05-25T10:11:00-07:00",
+      "body": "Ryan,\n\nNoticed something going through this week's support tickets. We've now had 5 different customers ask about supplier-side workflows in the last 14 days — specifically the ability to push RFQs back to suppliers from inside our platform rather than the supplier having to come find their email. Stephanie at Brightline, David at Northern, and three others.\n\nThis is a real feature gap and it keeps coming up in the same shape. Worth 30 min next week to talk about scoping?\n\nI'm not asking you to decide today — just flagging the pattern before it becomes 'why didn't we build this 3 months ago.'\n\nTom"
+    },
+    {
+      "id": "internal_010",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Marcus Chen",
+      "from_role": "Customer Success Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "[DM] Can we grab 30 min this week? Want to talk about my role scope",
+      "received_at": "2026-05-24T17:48:00-07:00",
+      "body": "Hey Ryan — when you have time, would love to grab 30 min this week. Nothing urgent or alarming, just want to talk through some thoughts on where my role is going as we scale and where I think I can add more value. Happy to do it whenever works for you."
+    },
+    {
+      "id": "internal_011",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Dani Rivera",
+      "from_role": "BDR Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "[#sales] Need pricing flexibility on Pinnacle Foods deal",
+      "received_at": "2026-05-25T14:08:00-07:00",
+      "body": "@ryan FYI Pinnacle Foods (demo tomorrow at 11) is going to push hard on pricing — their procurement lead specifically said in the qualification call that their CFO has flagged any new SaaS spend over $X/yr for executive review. Lisa thinks we can close them at standard pricing but they'll want a multi-year discount option.\n\nDo you want to weigh in on what flexibility I can give Lisa for the demo? I can also just let her run it standard and we negotiate after if they push back."
+    },
+    {
+      "id": "internal_012",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "kate.donovan@waystationai.com",
+      "from_name": "Kate Donovan",
+      "from_role": "Head of Talent",
+      "to": "ryan@waystationai.com",
+      "subject": "Offer letter for new CS hire — needs your sig",
+      "received_at": "2026-05-25T15:22:00-07:00",
+      "body": "Hi Ryan,\n\nOffer letter for Maya Chen (the CS hire we discussed last Friday) is ready in DocuSign. Standard terms we agreed on. She's expecting it today and we'd lose her if we don't send by EOD — she's deciding between us and one other role.\n\nLink in DocuSign. Should take 90 seconds.\n\nKate"
+    },
+    {
+      "id": "internal_013",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Brandon Kim",
+      "from_role": "Eng Lead",
+      "to": "ryan@waystationai.com",
+      "subject": "[#eng-decisions] Vendor question — going with Supabase or Postgres on RDS for analytics db",
+      "received_at": "2026-05-25T11:45:00-07:00",
+      "body": "@ryan small question — for the new analytics database (separate from our prod db) we're trying to decide between Supabase and Postgres on RDS. Supabase is cheaper and faster to set up, RDS is more 'enterprise' looking which might matter for our SOC 2. I have a small preference for Supabase given speed of iteration but happy either way. Want to make the call this week so we can start building the customer-facing dashboards next sprint."
+    },
+    {
+      "id": "internal_014",
+      "source": "internal",
+      "channel": "internal_email",
+      "from": "tom.alvarez@waystationai.com",
+      "from_name": "Tom Alvarez",
+      "from_role": "Product (founding)",
+      "to": "ryan@waystationai.com",
+      "subject": "Re: Re: Demo prep for Pinnacle — your input on the R&D module slide?",
+      "received_at": "2026-05-25T13:40:00-07:00",
+      "body": "Ryan — quick one. For tomorrow's Pinnacle demo, Lisa wants to include a teaser slide on the R&D module that's coming in Q3. I drafted something but wasn't sure how committal we want to be in writing to a prospect who hasn't signed yet. Few options:\n\n  1. Show the module visually with 'coming Q3' caveat\n  2. Verbal mention only, no slide\n  3. Skip it entirely until we have a real demo to show\n\nLisa is leaning option 1, I'm leaning option 2 since we slipped the OCR module timeline last quarter and I don't want to do it twice. Your call?"
+    },
+    {
+      "id": "internal_015",
+      "source": "internal",
+      "channel": "slack",
+      "from": "Sarah Wu",
+      "from_role": "Head of Finance (fractional)",
+      "to": "ryan@waystationai.com",
+      "subject": "[#finance] Q1 financials are in the shared drive whenever you have a minute",
+      "received_at": "2026-05-24T16:30:00-07:00",
+      "body": "FYI Q1 financials are finalized and in /Finance/2026/Q1. Top line: revenue tracking 8% ahead of plan, OpEx 4% under plan, net burn $X. Nothing surprising. Whenever you want to dig in let me know but no decisions needed."
+    }
+  ]
+}

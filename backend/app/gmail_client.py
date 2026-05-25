@@ -99,11 +99,38 @@ def fetch_recent_emails_live(max_results: int = 30) -> list[dict]:
     return results
 
 
-def fetch_emails_fixture(fixture_path: str = "data/synthetic_emails.json") -> list[dict]:
-    """Load emails from the synthetic fixture. Used for demo reliability."""
-    with open(fixture_path) as f:
-        data = json.load(f)
-    return data["emails"]
+def fetch_emails_fixture(
+    external_path: str = "data/synthetic_emails.json",
+    internal_path: str = "data/synthetic_internal_items.json",
+) -> list[dict]:
+    """Load emails + internal items from fixtures. Used for demo reliability.
+
+    Combines both external emails and internal queue items into a single list,
+    each tagged with `source`. Items are not pre-sorted — the triage pipeline
+    will compute priority and ordering happens at read time from the DB view.
+    """
+    items = []
+
+    with open(external_path) as f:
+        external = json.load(f)["emails"]
+        for e in external:
+            e.setdefault("source", "external")
+            items.append(e)
+
+    try:
+        with open(internal_path) as f:
+            internal = json.load(f)["items"]
+            for item in internal:
+                item.setdefault("source", "internal")
+                # Normalize internal items to the same shape as emails
+                if "to" not in item:
+                    item["to"] = "ryan@waystationai.com"
+                items.append(item)
+    except FileNotFoundError:
+        # Internal fixtures optional — system still works without them
+        pass
+
+    return items
 
 
 def fetch_emails(mode: str = "fixture") -> list[dict]:
