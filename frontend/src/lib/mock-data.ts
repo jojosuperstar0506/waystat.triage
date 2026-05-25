@@ -289,10 +289,11 @@ export const MOCK_INBOX: TriagedEmail[] = [
       recommended_handling:
         "Surface to Ryan for personal judgment; do not auto-draft a sales-y reply.",
     },
-    draft_body: null,
+    draft_body:
+      "Michael — good to hear from you. I'll be in SF Tue–Thu next week. Tuesday dinner works on my end if you're free; otherwise Thursday lunch. Drop me a couple of times that work.\n\nRyan",
     suggested_action: "personal_response_from_ryan",
     action_reasoning:
-      "Personal relationship + ambiguous intent. The cost of an off-tone AI draft outweighs the time savings; surface raw.",
+      "Personal relationship + ambiguous intent. Draft is short and intentionally non-committal on the professional thread — surfaces the relationship without forcing a frame.",
     priority_score: 62,
     needs_ryan: true,
     priority_reasoning:
@@ -348,10 +349,11 @@ export const MOCK_INBOX: TriagedEmail[] = [
       has_attachments_referenced: false,
       churn_signal: "Renewed the contract partly on the expectation of this integration",
     },
-    draft_body: null,
+    draft_body:
+      "Lisa — you're right to push, and I owe you a real answer.\n\nWe're committing to option (2): beta access on a limited endpoint set, shipping within 7 days. That gets your Looker integration live for the data your CFO is asking about, with full API parity in Q3 (real timeline this time, not aspirational).\n\nMarcus will own the rollout. Expect a kickoff invite from him today and the first endpoint specs by end of week.\n\nThank you for sticking with us — the renewal trust isn't lost on me.\n\nRyan",
     suggested_action: "personal_response_from_ryan",
     action_reasoning:
-      "Customer is on follow-up #4 with a stated renewal trigger. Marcus already escalated internally (see internal_004); Ryan needs to own the external reply once the decision is made.",
+      "Customer is on follow-up #4 with a stated renewal trigger. Marcus already escalated internally (see internal_004); Ryan needs to own the external reply once the decision is made. Draft commits to the beta-access option scoped by CS.",
     priority_score: 93,
     needs_ryan: true,
     priority_reasoning:
@@ -398,10 +400,11 @@ export const MOCK_INBOX: TriagedEmail[] = [
       ip_tradeoff: "Buying gives up some defensibility",
       decision_window: "Today if possible",
     },
-    draft_body: null,
+    draft_body:
+      "Buy. Pull the trigger on Textract — the structural lot-number bug is exactly the kind of thing we shouldn't be debugging during a customer's SQF audit window. IP defensibility on commodity OCR isn't where I want to compete; the moat is the workflow on top.\n\n2pm sync to walk through cost framing and scope what \"thin wrapper layer\" actually means before we sign. Calendar invite incoming.\n\nRyan",
     suggested_action: "personal_response_from_ryan",
     action_reasoning:
-      "Architecture/spend decision that gates engineering capacity. Not delegable; the IP-vs-velocity tradeoff is CEO-level.",
+      "Architecture/spend decision that gates engineering capacity. Not delegable; the IP-vs-velocity tradeoff is CEO-level. Draft makes the call and commits to a sync to align on execution.",
     priority_score: 91,
     needs_ryan: true,
     priority_reasoning:
@@ -479,10 +482,11 @@ export const MOCK_INBOX: TriagedEmail[] = [
       renewal_at_risk: true,
       decision_window: "Today",
     },
-    draft_body: null,
+    draft_body:
+      "Marcus — go with option (2). Beta access, limited endpoints, ship in 7 days. That buys Lisa a real win and us 30 days to land full parity in Q3.\n\nLock in before you reply to her:\n  • Endpoint scope — the 5 endpoints that cover her Looker BI use case, nothing else\n  • Written Q3 commitment with a specific date, not a quarter\n  • You own it, weekly check-in with her until full parity ships\n\nI'm not pulling anyone off the OCR work. We're going Textract anyway (see my reply to Brandon), which frees the capacity.\n\nSend me your draft to Lisa before it goes out.\n\nRyan",
     suggested_action: "personal_response_from_ryan",
     action_reasoning:
-      "Renewal at risk + 4th follow-up + customer who renewed partly on this commitment. Marcus needs Ryan's call to give a real answer.",
+      "Renewal at risk + 4th follow-up + customer who renewed partly on this commitment. Marcus needs Ryan's call. Draft makes the call and routes execution back to Marcus with explicit guardrails.",
     priority_score: 95,
     needs_ryan: true,
     priority_reasoning:
@@ -633,10 +637,10 @@ export const MOCK_INBOX: TriagedEmail[] = [
       decision_window: "EOD today",
       effort_required: "90 seconds in DocuSign",
     },
-    draft_body: null,
+    draft_body: "Kate — signed. Send it.\n\nRyan",
     suggested_action: "personal_response_from_ryan",
     action_reasoning:
-      "Offer signature is Ryan-only but the decision is already made. This is a 90-second action, not a deliberation.",
+      "Offer signature is Ryan-only but the decision is already made. This is a 90-second action, not a deliberation. One-line confirmation reply.",
     priority_score: 71,
     needs_ryan: true,
     priority_reasoning:

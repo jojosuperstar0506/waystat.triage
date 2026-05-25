@@ -5,7 +5,7 @@ import { ActionBadge } from "@/components/action-badge";
 import { CategoryBadge } from "@/components/category-badge";
 import { ChannelChip } from "@/components/channel-chip";
 import { CrossLinkPanel } from "@/components/cross-link-panel";
-import { DraftCard } from "@/components/draft-card";
+import { DraftCard, type DraftState } from "@/components/draft-card";
 import { ExtractedFields } from "@/components/extracted-fields";
 import { FeedbackPanel } from "@/components/feedback-panel";
 import { PriorityPill } from "@/components/priority-pill";
@@ -18,6 +18,8 @@ interface EmailDetailProps {
   email: TriagedEmail | null;
   allEmails: TriagedEmail[];
   onSelect: (emailId: string) => void;
+  draftState: DraftState;
+  onDraftChange: (next: DraftState) => void;
   onSubmitFeedback: (
     emailId: string,
     payload: FeedbackPayload,
@@ -28,6 +30,8 @@ export function EmailDetail({
   email,
   allEmails,
   onSelect,
+  draftState,
+  onDraftChange,
   onSubmitFeedback,
 }: EmailDetailProps) {
   if (!email) {
@@ -168,7 +172,15 @@ export function EmailDetail({
             {email.action_reasoning && (
               <p className="mb-3 text-sm text-zinc-600">{email.action_reasoning}</p>
             )}
-            <DraftCard body={email.draft_body} />
+            <DraftCard
+              emailId={email.email_id}
+              body={email.draft_body}
+              state={draftState}
+              onChange={onDraftChange}
+              source={source}
+              channel={email.channel}
+              recipientName={email.from_name}
+            />
           </Section>
 
           <FeedbackPanel

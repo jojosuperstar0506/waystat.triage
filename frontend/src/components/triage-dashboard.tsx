@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 import { RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EMPTY_DRAFT_STATE, type DraftState } from "@/components/draft-card";
 import { EmailDetail } from "@/components/email-detail";
 import { FilterBar } from "@/components/filter-bar";
 import { InboxList } from "@/components/inbox-list";
@@ -43,6 +44,15 @@ export function TriageDashboard({
   const [needsRyanOnly, setNeedsRyanOnly] = useState(false);
   const [sourceFilter, setSourceFilter] = useState<"all" | ItemSource>("all");
   const [refreshing, startRefresh] = useTransition();
+  // Per-email draft state (edits + sent flag), keyed by email_id. Lives in
+  // the dashboard so edits and "sent" receipts persist when the user
+  // navigates away and back to an item. No backend persistence yet —
+  // intentional for the demo.
+  const [draftStates, setDraftStates] = useState<Record<string, DraftState>>({});
+
+  const updateDraftState = useCallback((emailId: string, next: DraftState) => {
+    setDraftStates((prev) => ({ ...prev, [emailId]: next }));
+  }, []);
 
   const filtered = useMemo(() => {
     return emails.filter((e) => {
@@ -140,6 +150,12 @@ export function TriageDashboard({
             email={selected}
             allEmails={emails}
             onSelect={setSelectedId}
+            draftState={
+              selected ? draftStates[selected.email_id] ?? EMPTY_DRAFT_STATE : EMPTY_DRAFT_STATE
+            }
+            onDraftChange={(next) => {
+              if (selected) updateDraftState(selected.email_id, next);
+            }}
             onSubmitFeedback={submitFeedbackAction}
           />
         </main>
