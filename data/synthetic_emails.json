@@ -1,0 +1,296 @@
+{
+  "_meta": {
+    "description": "Synthetic email dataset for Waystation triage system. 30 emails across 7 categories, designed to mirror what Ryan's actual inbox looks like as CEO of an AI procurement startup serving CPG.",
+    "generated_for": "Waystation AI BizOps interview demo",
+    "categories": [
+      "sales_inquiry",
+      "customer_support",
+      "renewal_expansion",
+      "vendor_pitch",
+      "recruiting",
+      "noise",
+      "edge_case"
+    ],
+    "intended_distribution": {
+      "sales_inquiry": 8,
+      "customer_support": 6,
+      "renewal_expansion": 4,
+      "vendor_pitch": 4,
+      "recruiting": 3,
+      "noise": 3,
+      "edge_case": 2
+    }
+  },
+  "emails": [
+    {
+      "id": "email_001",
+      "from": "sarah.chen@verdantfoods.com",
+      "from_name": "Sarah Chen",
+      "to": "ryan@waystationai.com",
+      "subject": "Procurement automation — Verdant Foods",
+      "received_at": "2026-05-25T08:14:00-07:00",
+      "body": "Hi Ryan,\n\nFound you via Eric Andersen at TSG (he speaks highly). I'm Director of Procurement at Verdant Foods — we're a $180M plant-based brand, mostly retail through Whole Foods, Sprouts, and a growing Costco footprint.\n\nWe're drowning in supplier emails. Three buyers, ~140 active SKUs across ingredients and packaging, and our quote tracking lives in three different spreadsheets and one buyer's head. We've looked at SAP Ariba and Coupa and neither is built for our scale or our workflow.\n\nA few of our peers mentioned Waystation. Would love a 30-min intro to see if there's a fit. I'm also bringing our Head of R&D into the conversation because COA tracking is its own nightmare.\n\nNext two weeks are open on my end — let me know what works.\n\nSarah\n\n---\nSarah Chen | Director of Procurement | Verdant Foods\n(415) 555-0142"
+    },
+    {
+      "id": "email_002",
+      "from": "marcus@craftbevco.com",
+      "from_name": "Marcus Wright",
+      "to": "ryan@waystationai.com",
+      "subject": "quick q on pricing",
+      "received_at": "2026-05-25T09:42:00-07:00",
+      "body": "hey saw your post on linkedin about the procurement intelligence stuff. we're a small beverage company (~$8M rev) and i'm the cofounder/coo, basically doing everything ops related myself. how much does this cost? also is there a free tier or something for early stage? appreciate any info\n\nmarcus"
+    },
+    {
+      "id": "email_003",
+      "from": "patricia.holloway@kindersnack.com",
+      "from_name": "Patricia Holloway",
+      "to": "ryan@waystationai.com",
+      "subject": "RFP — Procurement platform evaluation, KinderSnack Brands",
+      "received_at": "2026-05-24T16:23:00-07:00",
+      "body": "Mr. Caldbeck,\n\nKinderSnack Brands is conducting a formal evaluation of procurement and supplier management platforms. Following internal discussions and a recommendation from our Board, Waystation AI has been included on our shortlist.\n\nAttached please find our RFP document. Key items requiring response:\n\n1. Pricing for 50-seat deployment, multi-entity (we operate 4 brands)\n2. SOC 2 Type II and any other relevant compliance certifications\n3. Integration capabilities with NetSuite and SAP S/4HANA\n4. Reference customers in the $200M-$1B revenue range\n5. Implementation timeline and professional services scope\n\nResponses due by June 15. Please confirm receipt and indicate intent to respond.\n\nBest regards,\nPatricia Holloway\nVP Strategic Sourcing | KinderSnack Brands"
+    },
+    {
+      "id": "email_004",
+      "from": "support-noreply@stripe.com",
+      "from_name": "Stripe",
+      "to": "ryan@waystationai.com",
+      "subject": "Your Stripe payout of $47,829.14 is on its way",
+      "received_at": "2026-05-25T07:00:00-07:00",
+      "body": "Hi Ryan,\n\nYour scheduled payout of $47,829.14 was initiated today and should arrive in your bank account in 2 business days.\n\nView payout details: https://dashboard.stripe.com/payouts/po_1Ozx...\n\nThanks for using Stripe.\nThe Stripe Team"
+    },
+    {
+      "id": "email_005",
+      "from": "j.alvarez@brightline.co",
+      "from_name": "Jennifer Alvarez",
+      "to": "ryan@waystationai.com",
+      "subject": "Re: Waystation onboarding — issue with COA extraction",
+      "received_at": "2026-05-25T11:30:00-07:00",
+      "body": "Ryan,\n\nFollowing up from our Slack thread yesterday. The COA extraction is still misreading the lot numbers on our Cargill canola oil shipments. Specifically:\n\n- Lot 4471-G-2025 is being captured as \"4471-6-2025\"\n- The expiration date column is sometimes pulling the manufacture date instead\n\nThis is a problem because our QA team is now flagging it as a data integrity issue and threatening to revert to the manual process. We have a SQF audit in 6 weeks and I really don't want to be debugging this then.\n\nCan someone on your end take a look? Happy to share more sample COAs if helpful.\n\nThanks,\nJen\n\nJennifer Alvarez\nDirector of Quality | Brightline Bakery"
+    },
+    {
+      "id": "email_006",
+      "from": "outreach@apolloai.io",
+      "from_name": "Tyler from Apollo",
+      "to": "ryan@waystationai.com",
+      "subject": "Quick question, Ryan",
+      "received_at": "2026-05-25T06:30:00-07:00",
+      "body": "Hi Ryan,\n\nNoticed Waystation AI has been growing fast — congrats on the recent traction!\n\nI'm reaching out because we help companies like yours scale outbound 3-5x using AI-powered prospecting and intent data. Companies like {{company_name_1}} and {{company_name_2}} have seen tremendous results.\n\nWorth a 15-min chat next week? I have Tues 10am or Thurs 2pm open.\n\nBest,\nTyler\n\nP.S. — Happy to send over a quick Loom showing exactly how we'd approach Waystation's GTM."
+    },
+    {
+      "id": "email_007",
+      "from": "david.park@northernbrew.com",
+      "from_name": "David Park",
+      "to": "ryan@waystationai.com",
+      "subject": "Adding two more seats + question on R&D module",
+      "received_at": "2026-05-25T10:15:00-07:00",
+      "body": "Hi Ryan,\n\nQuick housekeeping — we want to add Mei (our new procurement analyst) and Tom (R&D, replacing Sarah who left) to our Waystation account. Can your team handle that or do I do it in admin settings?\n\nAlso — heard from another customer at the Expo West follow-up that you're rolling out an R&D-specific module with spec sheet management. Is that live? Our R&D team is asking and would love a preview if so. We'd potentially expand the contract for the additional functionality.\n\nThanks,\nDavid\n\n--\nDavid Park | VP Operations | Northern Brewing Co.\nCustomer since Aug 2025"
+    },
+    {
+      "id": "email_008",
+      "from": "alex.thompson@gmail.com",
+      "from_name": "Alex Thompson",
+      "to": "ryan@waystationai.com",
+      "subject": "Application — Founding BDR Role",
+      "received_at": "2026-05-24T20:11:00-07:00",
+      "body": "Hi Ryan,\n\nSaw the founding BDR posting on your LinkedIn and wanted to throw my hat in the ring.\n\nQuick background: 3 years at Toast doing outbound to mid-market restaurants, hit 130% of quota last year. Before that, supply chain analyst at a CPG co-man (Hearthside) — so I actually know the buyer persona Waystation is selling into.\n\nI've attached my resume. Would love 20 minutes if there's interest. Happy to also send over a sample call recording or a writing sample if useful.\n\nThanks,\nAlex Thompson\n(312) 555-9923\nlinkedin.com/in/alexthompson-sales"
+    },
+    {
+      "id": "email_009",
+      "from": "linkedin-noreply@linkedin.com",
+      "from_name": "LinkedIn",
+      "to": "ryan@waystationai.com",
+      "subject": "Ryan, you have 4 new notifications",
+      "received_at": "2026-05-25T05:00:00-07:00",
+      "body": "Hi Ryan,\n\nYou have 4 new notifications:\n\n• Daniel Cho liked your post\n• 3 people viewed your profile this week\n• Sarah Mitchell sent you a connection request\n• Your post about \"Why AI Winners in CPG\" reached 12,847 people\n\nSee all notifications: https://linkedin.com/notifications\n\n— The LinkedIn Team"
+    },
+    {
+      "id": "email_010",
+      "from": "k.reeves@valleyharvest.com",
+      "from_name": "Kate Reeves",
+      "to": "ryan@waystationai.com",
+      "subject": "Renewal coming up + need to discuss seat reduction",
+      "received_at": "2026-05-25T13:48:00-07:00",
+      "body": "Hi Ryan,\n\nOur annual renewal is up July 31. Wanted to flag a few things ahead of the QBR next week:\n\n1. We're going to need to reduce from 8 seats to 5. We had a reorg in Q1 and the central procurement model is being decentralized back to the BU level — so two of the people on Waystation no longer have procurement in their job scope, and we let one role go.\n\n2. That said, the people who DO use it (especially Megan on dairy ingredients) love it. Megan said it saved her ~6 hours/week on quote consolidation.\n\n3. We'd want to keep our current pricing per seat for the renewal given we're reducing volume — can we discuss?\n\nLet me know if next Thursday at 2pm PT still works for the QBR. I'll bring Megan.\n\nKate\n\nKate Reeves | Head of Procurement | Valley Harvest Foods"
+    },
+    {
+      "id": "email_011",
+      "from": "founders@stealthstartup.io",
+      "from_name": "Priya Krishnamurthy",
+      "to": "ryan@waystationai.com",
+      "subject": "Coffee?",
+      "received_at": "2026-05-24T17:22:00-07:00",
+      "body": "Ryan!\n\nLong time. Hope you're well. Heard great things about Waystation from Tim at USV.\n\nI'm building something in adjacent space — AI for supplier-side workflows in food & beverage. Different angle than yours (we're focused on the supplier rather than the buyer) but I'd love to compare notes. Lots of CircleUp folks have been incredibly generous with their time and I'd love to learn from your journey.\n\nAlso, full disclosure, we're raising and Tim suggested I introduce myself. No pressure — even just a 30-min coffee in Redwood City sometime in June would be great.\n\nPriya\n\n(We overlapped briefly at CircleUp in 2018 — I was on the data team, you probably don't remember me but I definitely remember you)"
+    },
+    {
+      "id": "email_012",
+      "from": "m.dawson@goldenbear.com",
+      "from_name": "Mike Dawson",
+      "to": "ryan@waystationai.com",
+      "subject": "Question about pricing tier — Golden Bear Snacks",
+      "received_at": "2026-05-25T09:12:00-07:00",
+      "body": "Hey Ryan,\n\nFollowing up from the demo last Wednesday with your team (Lisa walked us through). Really impressed.\n\nThe pricing she quoted ($X/seat/month, 10-seat min) works for our procurement team, but we're a smaller op ($45M rev, 7-person operations team total) and we'd need to also include 2 R&D folks who'd be in there occasionally. Is there flexibility on the minimum, or a starter tier? Don't want to lose this internally over a 3-seat gap.\n\nAlso — Lisa mentioned implementation is 2 business days. We're trying to be live before our August co-pack run starts. That feels tight but doable. Confirm?\n\nThanks,\nMike\n\nMike Dawson | COO | Golden Bear Snacks"
+    },
+    {
+      "id": "email_013",
+      "from": "noreply@calendly.com",
+      "from_name": "Calendly",
+      "to": "ryan@waystationai.com",
+      "subject": "New event: Demo with Lisa @ Pinnacle Foods - Tomorrow 11:00 AM",
+      "received_at": "2026-05-25T14:33:00-07:00",
+      "body": "A new event has been scheduled.\n\nEvent: Waystation Demo\nInvitee: Lisa Park - Director of Procurement, Pinnacle Foods\nWhen: Tuesday, May 26, 2026, 11:00 AM - 11:45 AM PT\nWhere: Google Meet\n\nView event: https://calendly.com/ryan-waystation/demo/..."
+    },
+    {
+      "id": "email_014",
+      "from": "rachel.osei@hmstpartners.com",
+      "from_name": "Rachel Osei",
+      "to": "ryan@waystationai.com",
+      "subject": "Senior Engineer candidate — strong CPG/supply chain background",
+      "received_at": "2026-05-25T10:47:00-07:00",
+      "body": "Hi Ryan,\n\nRachel from HMST — we connected briefly at AI Founders Summit last quarter.\n\nWe have a Senior Backend Engineer candidate I think would be exceptional for Waystation: 8 yrs at Flexport (last 3 leading the supplier integration team), MS CompSci from CMU, and crucially — actually wants to work in CPG/supply chain (most engineers don't).\n\nShe's actively interviewing and has offers in hand from a couple of bigger names but said your company would be her top choice if you're hiring. Worth a 30 min intro call?\n\nHappy to send her resume + a quick writeup of why I think she's a fit.\n\nRachel\n\nRachel Osei | Partner | HMST Talent Partners\n(she/her)"
+    },
+    {
+      "id": "email_015",
+      "from": "tom.bradley@meadowfresh.com",
+      "from_name": "Tom Bradley",
+      "to": "ryan@waystationai.com",
+      "subject": "URGENT: System down? Can't access dashboard",
+      "received_at": "2026-05-25T07:43:00-07:00",
+      "body": "Ryan,\n\nNo one on my team can access the Waystation dashboard since around 7 AM. We're getting a 502 error. Our morning supplier call starts in 90 minutes and I need pricing comparisons pulled up.\n\nIs this a known issue? Please advise ASAP.\n\nTom Bradley\nVP Procurement | Meadowfresh Dairy\nMobile: (212) 555-0188"
+    },
+    {
+      "id": "email_016",
+      "from": "team@producthunt.com",
+      "from_name": "Product Hunt",
+      "to": "ryan@waystationai.com",
+      "subject": "🚀 Today's Top Products",
+      "received_at": "2026-05-25T04:00:00-07:00",
+      "body": "Good morning,\n\nHere are today's top trending products on Product Hunt:\n\n1. Lyra - AI meeting assistant that actually works\n2. Forge - No-code workflow builder for ops teams\n3. Ember - Voice-first journaling app\n\nDiscover more on Product Hunt.\n\nUnsubscribe | Manage preferences"
+    },
+    {
+      "id": "email_017",
+      "from": "ben.chen@summitcap.vc",
+      "from_name": "Ben Chen",
+      "to": "ryan@waystationai.com",
+      "subject": "Introduction — Summit Capital",
+      "received_at": "2026-05-24T14:55:00-07:00",
+      "body": "Hi Ryan,\n\nBen here from Summit Capital. We're a growth-stage fund ($800M AUM) focused on vertical AI applications, and Waystation has been on our radar for a few months — particularly given the CircleUp/Helio pedigree and what we're seeing in the supplier intelligence space.\n\nWe know you're likely not raising right now, but we like to build relationships well before there's a transaction. Open to a 30-min intro call in the next couple weeks?\n\nHappy to come down to Redwood City if easier.\n\nBest,\nBen Chen | Principal | Summit Capital"
+    },
+    {
+      "id": "email_018",
+      "from": "lisa.huang@mountainpeak.com",
+      "from_name": "Lisa Huang",
+      "to": "ryan@waystationai.com",
+      "subject": "Re: Re: Re: API access for our BI tool",
+      "received_at": "2026-05-25T08:55:00-07:00",
+      "body": "Ryan,\n\nFollowing up again on this. We've been asking for API access to pull our Waystation data into our internal BI dashboard (Looker) for over a month now. Our last update from your team (Apr 18) said it was \"on the roadmap for Q2.\"\n\nQ2 ends in 5 weeks. Can someone give me a real status update? Our CFO is asking and I'm running out of stalling answers.\n\nNot trying to be difficult but this is becoming a real friction point. We renewed the contract partly on the expectation of this integration.\n\nLisa\n\nLisa Huang | Head of Operations | MountainPeak Foods"
+    },
+    {
+      "id": "email_019",
+      "from": "events@saastr.com",
+      "from_name": "SaaStr Events",
+      "to": "ryan@waystationai.com",
+      "subject": "Final hours: SaaStr Annual 2026 Early Bird ends tonight",
+      "received_at": "2026-05-25T03:30:00-07:00",
+      "body": "Don't miss SaaStr Annual 2026 — September 9-11, San Mateo.\n\nEarly bird pricing ($1,999) ends at midnight tonight.\n\n400+ speakers. 12,000+ attendees. The biggest SaaS event of the year.\n\nRegister now → https://saastr.com/annual"
+    },
+    {
+      "id": "email_020",
+      "from": "amanda.foster@rivermill.com",
+      "from_name": "Amanda Foster",
+      "to": "ryan@waystationai.com",
+      "subject": "Loved the podcast — and a question",
+      "received_at": "2026-05-24T22:14:00-07:00",
+      "body": "Hi Ryan,\n\nJust listened to your interview on the Cognitive Revolution. Really thoughtful framing on why repeatable problems beat 'vague functions' in CPG AI. I sent it around to my whole team.\n\nWe're a $300M frozen foods brand and our procurement process is exactly the email chaos you described. I'd been told to look at SAP Ariba but after listening I'm questioning whether that's actually the right shape of solution for us.\n\nWould you have time for a 30-min call? Even if Waystation isn't the right fit for our size, I'd value the perspective on how to think about this.\n\nAmanda\n\nAmanda Foster | COO | Rivermill Brands"
+    },
+    {
+      "id": "email_021",
+      "from": "sales@gong.io",
+      "from_name": "Jordan from Gong",
+      "to": "ryan@waystationai.com",
+      "subject": "Re: Following up on Gong demo",
+      "received_at": "2026-05-25T11:00:00-07:00",
+      "body": "Hi Ryan,\n\nCircling back on our conversation last week. Wanted to see if you'd had a chance to review the proposal I sent over for the Gong + Salesforce integration.\n\nWe're seeing companies in your stage typically see ROI within 90 days through:\n• 15-20% improvement in win rates\n• Significant reduction in ramp time for new reps\n• Full visibility into deal risk\n\nHappy to hop on a quick call to address any questions. I have Wed 3pm or Fri 11am open.\n\nBest,\nJordan Mitchell\nAccount Executive | Gong"
+    },
+    {
+      "id": "email_022",
+      "from": "evan.chen@hillsidefoods.com",
+      "from_name": "Evan Chen",
+      "to": "ryan@waystationai.com",
+      "subject": "Onboarding — second supplier list?",
+      "received_at": "2026-05-25T09:30:00-07:00",
+      "body": "Hi team,\n\nNew customer here. We sent over our initial supplier list on Monday and got the account live yesterday — quick work.\n\nQuestion: we have a separate supplier list for our private label co-pack business (different than our branded supplier base). Can we add those to the same account or do we need a second instance? It's about 60 additional suppliers.\n\nThanks,\nEvan\n\nEvan Chen | Head of Supply Chain | Hillside Foods"
+    },
+    {
+      "id": "email_023",
+      "from": "noreply@github.com",
+      "from_name": "GitHub",
+      "to": "ryan@waystationai.com",
+      "subject": "[waystation-ai/platform] New issue: Webhook timeouts on Mailgun events (#1247)",
+      "received_at": "2026-05-25T06:14:00-07:00",
+      "body": "Opened by @j-rodriguez:\n\nWe're seeing intermittent webhook timeouts on Mailgun events again. Started Sunday evening. Most affected accounts: Brightline Bakery, Northern Brewing.\n\nLogs attached. Looks like the same pattern as #1198 but in a different code path.\n\nAssigned: @b-kim\nLabels: bug, p1, production"
+    },
+    {
+      "id": "email_024",
+      "from": "p.singh@coastalcollective.com",
+      "from_name": "Priya Singh",
+      "to": "ryan@waystationai.com",
+      "subject": "thanks for the intro",
+      "received_at": "2026-05-25T07:55:00-07:00",
+      "body": "ryan -\n\nthanks for connecting us with the team at northern brewing. mike was super generous with his time and we ended up signing the contract this morning.\n\nimplementation kicks off monday. our procurement team is going to be skeptical (they've been burned by 'AI' tools before) but i think once they see the COA extraction working they'll come around.\n\nappreciate everything.\n\npriya\n\n--\nPriya Singh | CEO | Coastal Collective"
+    },
+    {
+      "id": "email_025",
+      "from": "outbound@clay.com",
+      "from_name": "Clay",
+      "to": "ryan@waystationai.com",
+      "subject": "Building a list of CPG procurement leaders for you",
+      "received_at": "2026-05-25T05:45:00-07:00",
+      "body": "Hi Ryan,\n\nQuick note — we put together a targeted list of 247 Heads of Procurement at $50M-$500M CPG companies in the US, with verified emails, LinkedIn URLs, and recent job change signals.\n\nThis is the exact ICP for Waystation based on your messaging. Want me to send a sample of 25 contacts so you can try it free?\n\nReply YES and I'll send it over.\n\nBest,\nThe Clay team"
+    },
+    {
+      "id": "email_026",
+      "from": "j.patel@harvesthouse.com",
+      "from_name": "Jason Patel",
+      "to": "ryan@waystationai.com",
+      "subject": "Cancelling our subscription",
+      "received_at": "2026-05-24T18:38:00-07:00",
+      "body": "Ryan,\n\nThis is hard to write because I genuinely liked working with your team. But I need to let you know we're not going to renew when our contract ends in August.\n\nThe honest reason: we got acquired by Sun-Maid in March (just announced internally last week, public next month). Their procurement org runs on SAP and they're not interested in maintaining a separate tool for our brand. I argued for it but lost.\n\nI'd recommend you stay in touch — if I land somewhere else in CPG, Waystation would be the first thing I bring in. And let me know if you want a written testimonial or reference. You earned it.\n\nJason\n\nJason Patel | Head of Operations | Harvest House (soon to be: Sun-Maid Growth Brands)"
+    },
+    {
+      "id": "email_027",
+      "from": "kevin.murphy@brassroot.com",
+      "from_name": "Kevin Murphy",
+      "to": "ryan@waystationai.com",
+      "subject": "Demo request",
+      "received_at": "2026-05-25T12:20:00-07:00",
+      "body": "Hi,\n\nInterested in a demo of Waystation. We're a 75-person beverage company in Austin.\n\nKevin Murphy\nVP Operations\nBrass Root Beverages\n(737) 555-2284"
+    },
+    {
+      "id": "email_028",
+      "from": "michael.t@grovecreekcap.com",
+      "from_name": "Michael Tanaka",
+      "to": "ryan@waystationai.com",
+      "subject": "Portfolio company intro — would love your perspective",
+      "received_at": "2026-05-24T15:30:00-07:00",
+      "body": "Hi Ryan,\n\nMichael from Grove Creek Capital. We're a CPG-focused PE shop ($1.2B AUM) and one of our portfolio companies — a $400M premium snack brand — is in the early stages of evaluating procurement tooling.\n\nWould you be open to a brief intro with their CFO and Head of Supply Chain? They're in evaluation mode now, would likely make a decision in Q3.\n\nMore broadly — would love to keep you in mind as we work with other portfolio companies in the consumer space. Many of them have the exact pain points your platform addresses.\n\nBest,\nMichael Tanaka | Operating Partner | Grove Creek Capital"
+    },
+    {
+      "id": "email_029",
+      "from": "stephanie.r@brightline.co",
+      "from_name": "Stephanie Romero",
+      "to": "ryan@waystationai.com",
+      "subject": "FYI — small thing but worth mentioning",
+      "received_at": "2026-05-25T14:02:00-07:00",
+      "body": "Hey Ryan,\n\nNothing urgent — but I noticed when I was prepping for our weekly procurement meeting that the supplier comparison view doesn't show MOQs in the side-by-side. It's there in the individual supplier profile but not in the comparison.\n\nFor my workflow this means I have to click into each supplier to remind myself of MOQs when I'm choosing between three for a bid. Small friction. Would be amazing if it showed up in the comparison view.\n\nNot a dealbreaker at all, just sharing in case it's useful product feedback.\n\nLove the tool overall — the team's been impressed.\n\nStephanie\n\nStephanie Romero | Procurement Manager | Brightline Bakery"
+    },
+    {
+      "id": "email_030",
+      "from": "outreach@salesfullyautomated.com",
+      "from_name": "Daniel R.",
+      "to": "ryan@waystationai.com",
+      "subject": "Ryan — saw you're hiring",
+      "received_at": "2026-05-25T04:22:00-07:00",
+      "body": "Ryan,\n\nNoticed Waystation is hiring BDRs.\n\nI run a fully managed outbound service — we replace BDRs entirely. Our agents send 5,000+ emails/day, book meetings on your calendar, and follow up automatically. Most of our clients ditch BDRs within 60 days.\n\nWorth a 10-min call to see if we can save you the hiring cost?\n\nDan"
+    }
+  ]
+}

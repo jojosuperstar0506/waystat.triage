@@ -1,0 +1,252 @@
+{
+  "_meta": {
+    "description": "Hand-labeled ground truth for the 30 synthetic emails. Used for measuring classification accuracy and calibrating prioritization. Labeled by hand BEFORE running the system on the dataset.",
+    "labeling_principles": [
+      "Categories are not always clean — when ambiguity exists, the label reflects how Ryan would actually want it handled, not strict category boundaries.",
+      "needs_ryan is true only when Ryan personally must be the responder. Important + delegable = needs_ryan false.",
+      "Priority is on a 0-100 scale matching the prioritizer rubric in prioritizer.py."
+    ]
+  },
+  "labels": [
+    {
+      "email_id": "email_001",
+      "category": "sales_inquiry",
+      "needs_ryan": true,
+      "expected_priority_range": [75, 95],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Hot inbound from $180M plant-based brand with specific need, referral, and multi-stakeholder intent. Ryan's bread and butter."
+    },
+    {
+      "email_id": "email_002",
+      "category": "sales_inquiry",
+      "needs_ryan": false,
+      "expected_priority_range": [30, 50],
+      "expected_action": "delegate_to_bdr",
+      "notes": "Small co-founder ($8M rev) below ICP. Polite delegation to BDR for qualification."
+    },
+    {
+      "email_id": "email_003",
+      "category": "sales_inquiry",
+      "needs_ryan": true,
+      "expected_priority_range": [85, 100],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Formal RFP from large multi-brand operator with hard deadline. High-value strategic prospect."
+    },
+    {
+      "email_id": "email_004",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [0, 10],
+      "expected_action": "auto_archive",
+      "notes": "Stripe payout notification. Pure transactional."
+    },
+    {
+      "email_id": "email_005",
+      "category": "customer_support",
+      "needs_ryan": true,
+      "expected_priority_range": [70, 90],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "Real data quality issue + churn risk language ('threatening to revert to manual') + audit deadline. Top customer signal."
+    },
+    {
+      "email_id": "email_006",
+      "category": "vendor_pitch",
+      "needs_ryan": false,
+      "expected_priority_range": [5, 20],
+      "expected_action": "auto_archive",
+      "notes": "Generic outbound with unfilled template variables ({{company_name_1}}). Spam pattern."
+    },
+    {
+      "email_id": "email_007",
+      "category": "renewal_expansion",
+      "needs_ryan": false,
+      "expected_priority_range": [55, 75],
+      "expected_action": "delegate_to_cs",
+      "notes": "Seat addition + expansion interest. Important but CS/admin can handle the seat add; expansion question may loop in Ryan later."
+    },
+    {
+      "email_id": "email_008",
+      "category": "recruiting",
+      "needs_ryan": false,
+      "expected_priority_range": [45, 65],
+      "expected_action": "delegate_to_recruiter",
+      "notes": "Strong applicant (130% quota, relevant CPG domain). Recruiter screens first, surface to Ryan if it passes initial bar."
+    },
+    {
+      "email_id": "email_009",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [0, 10],
+      "expected_action": "auto_archive",
+      "notes": "LinkedIn notification digest."
+    },
+    {
+      "email_id": "email_010",
+      "category": "renewal_expansion",
+      "needs_ryan": true,
+      "expected_priority_range": [80, 95],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Seat reduction + pricing negotiation request ahead of renewal. Ryan must own this conversation."
+    },
+    {
+      "email_id": "email_011",
+      "category": "edge_case",
+      "needs_ryan": true,
+      "expected_priority_range": [60, 80],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Former CircleUp colleague + adjacent startup + raising + warm intro from USV partner. Mixes personal/professional/competitive. Ryan must respond personally."
+    },
+    {
+      "email_id": "email_012",
+      "category": "sales_inquiry",
+      "needs_ryan": false,
+      "expected_priority_range": [55, 75],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "Mid-stage deal with pricing objection and tight timeline. BDR/AE owns, but worth Ryan's awareness for the pricing flexibility decision."
+    },
+    {
+      "email_id": "email_013",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [0, 10],
+      "expected_action": "auto_archive",
+      "notes": "Calendly notification — meeting is already on calendar."
+    },
+    {
+      "email_id": "email_014",
+      "category": "recruiting",
+      "needs_ryan": false,
+      "expected_priority_range": [55, 70],
+      "expected_action": "delegate_to_recruiter",
+      "notes": "Strong recruiter pitch with directly-relevant candidate. Recruiter qualifies, surface to Ryan if first call goes well."
+    },
+    {
+      "email_id": "email_015",
+      "category": "customer_support",
+      "needs_ryan": true,
+      "expected_priority_range": [90, 100],
+      "expected_action": "flag_to_engineering",
+      "notes": "Production outage for an active customer with 90-min deadline. Engineering on it immediately; Ryan needs to be aware/respond personally given customer profile."
+    },
+    {
+      "email_id": "email_016",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [0, 10],
+      "expected_action": "auto_archive",
+      "notes": "Product Hunt daily digest."
+    },
+    {
+      "email_id": "email_017",
+      "category": "edge_case",
+      "needs_ryan": true,
+      "expected_priority_range": [40, 60],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "VC intro when not raising. Not sales_inquiry (won't buy), but worth a personal short response to maintain relationship for later."
+    },
+    {
+      "email_id": "email_018",
+      "category": "customer_support",
+      "needs_ryan": true,
+      "expected_priority_range": [75, 90],
+      "expected_action": "draft_for_ryan_review",
+      "notes": "Customer frustration escalating ('renewed contract partly on this expectation'). Churn risk signal embedded in support ticket. Ryan needs to engage personally even if response is mostly drafted."
+    },
+    {
+      "email_id": "email_019",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [0, 10],
+      "expected_action": "auto_archive",
+      "notes": "SaaStr event marketing blast."
+    },
+    {
+      "email_id": "email_020",
+      "category": "sales_inquiry",
+      "needs_ryan": true,
+      "expected_priority_range": [70, 85],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "$300M frozen brand COO references podcast, asks for personal call. Warm, high-intent, high-fit."
+    },
+    {
+      "email_id": "email_021",
+      "category": "vendor_pitch",
+      "needs_ryan": false,
+      "expected_priority_range": [15, 35],
+      "expected_action": "auto_archive",
+      "notes": "Gong follow-up. Not spam (real product Ryan might use eventually) but not a priority. Archive or delegate to whoever owns sales tech stack."
+    },
+    {
+      "email_id": "email_022",
+      "category": "customer_support",
+      "needs_ryan": false,
+      "expected_priority_range": [35, 55],
+      "expected_action": "delegate_to_cs",
+      "notes": "Routine onboarding question from new customer. CS owns."
+    },
+    {
+      "email_id": "email_023",
+      "category": "noise",
+      "needs_ryan": false,
+      "expected_priority_range": [5, 20],
+      "expected_action": "auto_archive",
+      "notes": "GitHub notification. Tracked in eng tools — doesn't need email triage attention."
+    },
+    {
+      "email_id": "email_024",
+      "category": "customer_support",
+      "needs_ryan": true,
+      "expected_priority_range": [40, 60],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Customer thank-you with positive signal (new contract closed). Short warm response from Ryan strengthens relationship. Not urgent but high-value relational touch."
+    },
+    {
+      "email_id": "email_025",
+      "category": "vendor_pitch",
+      "needs_ryan": false,
+      "expected_priority_range": [10, 25],
+      "expected_action": "auto_archive",
+      "notes": "Outbound from a list-building service. Not spam exactly but not relevant."
+    },
+    {
+      "email_id": "email_026",
+      "category": "renewal_expansion",
+      "needs_ryan": true,
+      "expected_priority_range": [90, 100],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "Active cancellation due to acquisition. Top priority — Ryan needs to engage on testimonial, references, and potentially explore enterprise relationship with Sun-Maid."
+    },
+    {
+      "email_id": "email_027",
+      "category": "sales_inquiry",
+      "needs_ryan": false,
+      "expected_priority_range": [40, 55],
+      "expected_action": "delegate_to_bdr",
+      "notes": "Cold inbound, minimal info, but right ICP. BDR qualifies."
+    },
+    {
+      "email_id": "email_028",
+      "category": "sales_inquiry",
+      "needs_ryan": true,
+      "expected_priority_range": [75, 90],
+      "expected_action": "personal_response_from_ryan",
+      "notes": "PE firm offering portfolio company intro AND ongoing portfolio relationship. High strategic value, Ryan must own."
+    },
+    {
+      "email_id": "email_029",
+      "category": "customer_support",
+      "needs_ryan": false,
+      "expected_priority_range": [30, 50],
+      "expected_action": "delegate_to_cs",
+      "notes": "Routine product feedback from happy customer. CS captures, product reviews. Nice signal but not urgent."
+    },
+    {
+      "email_id": "email_030",
+      "category": "vendor_pitch",
+      "needs_ryan": false,
+      "expected_priority_range": [5, 20],
+      "expected_action": "auto_archive",
+      "notes": "Outbound 'replace your BDRs' pitch. Off-base — Waystation is explicitly building a human BDR team."
+    }
+  ]
+}
